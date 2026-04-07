@@ -13,7 +13,7 @@ const verifyToken = (req, res, next) => {
 
   try {
     // Giải mã token (nhớ đảm bảo process.env.JWT_SECRET khớp với lúc tạo token khi login)
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'chuoi_bi_mat_test');
 
     // Gắn thông tin user vào request để các hàm phía sau dùng được
     req.user = decoded;

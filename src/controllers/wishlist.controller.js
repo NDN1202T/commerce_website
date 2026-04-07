@@ -18,8 +18,8 @@ const getWishlist = async (req, res) => {
 // 2. Thêm sản phẩm vào danh sách yêu thích
 const addToWishlist = async (req, res) => {
   try {
-    // const userId = req.user.id;
-    const userId = "65abcdef1234567890abcdef";
+    const userId = req.user.id;
+    // const userId = "65abcdef1234567890abcdef";
     const { productId } = req.body;
 
     // Do Model đã set unique index, nếu thêm trùng sẽ tự văng lỗi catch
@@ -36,7 +36,6 @@ const addToWishlist = async (req, res) => {
         .status(400)
         .json({ message: "Sản phẩm đã có trong danh sách yêu thích!" });
     }
-    console.log("CHI TIẾT LỖI:", error); // Thêm dòng này để in lỗi ra terminal
     res
       .status(500)
       .json({ message: "Lỗi khi thêm sản phẩm", error: error.message }); // Đổi error thành error.message

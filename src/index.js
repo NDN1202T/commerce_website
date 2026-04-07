@@ -7,11 +7,13 @@ const mongoURI = "mongodb://localhost:27017/commerce_website";
 
 const productRoutes = require("./routes/productRoutes");
 const wishlistRoutes = require("./routes/wishlist.routes");
+const authRoutes = require("./routes/auth.routes");
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
+app.use("/api/auth", authRoutes);
 app.use("/api/wishlist", wishlistRoutes);
 
 mongoose
@@ -24,4 +26,3 @@ app.use("/api/products", productRoutes);
 app.listen(PORT, () => {
   console.log(`Server đang chạy tại http://localhost:${PORT}`);
 });
-
