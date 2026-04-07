@@ -8,11 +8,13 @@ const mongoURI = "mongodb://localhost:27017/commerce_website";
 const productRoutes = require("./routes/productRoutes");
 const wishlistRoutes = require("./routes/wishlist.routes");
 const authRoutes = require("./routes/auth.routes");
+const couponRoutes = require("./routes/coupon.routes");
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
+app.use("/api/coupons", couponRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/wishlist", wishlistRoutes);
 
