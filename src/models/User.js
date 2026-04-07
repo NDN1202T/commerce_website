@@ -20,6 +20,14 @@ const userSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    avatar: {
+      type: String,
+      default: "", // Chứa link ảnh URL
+    },
+    address: {
+      type: String,
+      default: "", // Chứa địa chỉ giao hàng
+    },
     password: {
       type: String,
       required: true,
