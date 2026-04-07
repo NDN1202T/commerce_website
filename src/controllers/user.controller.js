@@ -73,4 +73,31 @@ const changePassword = async (req, res) => {
   }
 };
 
-module.exports = { getProfile, updateProfile, changePassword };
+// 4. Lay ds User tru thang Admin
+const getAllUsersExceptAdmin = async (req, res) => {
+  try {
+    // Tim tat ca user ma khong phai admin, va bo tru truong password de bao mat
+    const users = await User.find({ role: { $ne: "admin" } }).select("-password");
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Loi lay danh sach nguoi dung", error: error.message });
+  }
+};
+
+// 5. Delete User (Admin moi duoc xoa)
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params; // lay ID tu URL
+    
+    const deletedUser = await User.findByIdAndDelete(id);
+    if (!deletedUser) {
+      return res.status(404).json({ message: "Khong tim thay nguoi dung nay!" });
+    }
+
+    res.status(200).json({ message: "Xoa nguoi dung thanh cong!" });
+  } catch (error) {
+    res.status(500).json({ message: "Loi khi xoa", error: error.message });
+  }
+};
+
+module.exports = { getProfile, updateProfile, changePassword, getAllUsersExceptAdmin, deleteUser };

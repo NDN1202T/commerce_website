@@ -10,6 +10,7 @@ const wishlistRoutes = require("./routes/wishlist.routes");
 const authRoutes = require("./routes/auth.routes");
 const couponRoutes = require("./routes/coupon.routes");
 const userRoutes = require("./routes/user.routes");
+const categoryRoutes = require("./routes/category.routes");
 
 app.use(cors());
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use("/api/coupons", couponRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/wishlist", wishlistRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/categories", categoryRoutes);
 
 mongoose
   .connect(mongoURI)
