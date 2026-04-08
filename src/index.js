@@ -1,10 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const PORT = 3000;
-const mongoURI = "mongodb://localhost:27017/commerce_website";
-
+const PORT = process.env.PORT;
 const productRoutes = require("./routes/productRoutes");
 const wishlistRoutes = require("./routes/wishlist.routes");
 const authRoutes = require("./routes/auth.routes");
@@ -21,7 +20,7 @@ app.use("/api/wishlist", wishlistRoutes);
 app.use("/api/users", userRoutes);
 
 mongoose
-  .connect(mongoURI)
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("Đã kết nối MongoDB thành công!"))
   .catch((err) => console.error("Lỗi kết nối MongoDB:", err));
 
