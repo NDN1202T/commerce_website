@@ -10,6 +10,8 @@ const authRoutes = require("./routes/auth.routes");
 const couponRoutes = require("./routes/coupon.routes");
 const userRoutes = require("./routes/user.routes");
 const categoryRoutes = require("./routes/category.routes");
+const cartRoutes = require("./routes/cartRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
 
 app.use(cors());
 app.use(express.json());
@@ -20,6 +22,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/wishlist", wishlistRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/categories", categoryRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/payment", paymentRoutes);
 
 mongoose
   .connect(process.env.MONGODB_URI)
