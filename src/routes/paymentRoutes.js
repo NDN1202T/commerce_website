@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const paymentController = require('../../../../src/controllers/paymentController');
+const paymentController = require('../controllers/paymentController');
 
 // Lấy danh sách: GET http://localhost:3000/api/payments
 router.get('/', paymentController.getAllPayments);

@@ -1,5 +1,5 @@
-const Payment = require('../../cart/commerce_website/src/models/Payment');
-const Cart = require('../../cart/commerce_website/src/models/Cart');
+const Payment = require('../models/Payment');
+const Cart = require('../models/Cart');
 
 // 1. Lấy danh sách thanh toán
 exports.getAllPayments = async (req, res) => {

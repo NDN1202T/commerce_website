@@ -1,4 +1,4 @@
-const Cart = require('../../cart/commerce_website/src/models/Cart');
+const Cart = require('../models/Cart');
 const Product = require('../models/Product');
 
 // 1. Lấy giỏ hàng (giả sử chỉ có một giỏ hàng, hoặc theo userId nếu có auth)

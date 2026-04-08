@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const cartController = require('../../../../src/controllers/cartController');
+const cartController = require('../controllers/cartController');
 
 // Lấy giỏ hàng: GET http://localhost:3000/api/cart
 router.get('/', cartController.getCart);
